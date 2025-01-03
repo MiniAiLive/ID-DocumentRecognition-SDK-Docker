@@ -1,13 +1,13 @@
 <div align="center">
-   <h1>ID Document Recognition Linux SDK</h1>
+   <h1>ID Document Recognition Docker</h1>
    <img src=https://miniai.live/wp-content/uploads/2024/02/logo_name-1-768x426-1.png alt="MiniAiLive Logo"
    width="300">
 </div>
 
 ## Welcome to the [MiniAiLive](https://www.miniai.live/)!
-Welcome to the ID Document Recognition SDK! This SDK provides powerful tools for recognizing and extracting information from ID documents. The SDK is available for both Windows and Linux platforms and includes an API for integration.
+Welcome to the ID Document Recognition Docker! This Docker provides powerful tools for recognizing and extracting information from ID documents. The Docker is available for both Windows and Linux platforms and includes an API for integration.
 
-Reduce drop-off and boost conversions with ID scanning and verification solutions. Quickly and securely capture, extract, and verify data from diverse ID cards, passports, driver’s licenses, and other documents with our proven, AI-first approach. Designed to fit seamlessly together, our technology can be integrated as a fully-bundled identity document verification solution or as separate modules via developer-friendly mobile or server SDK. Try it out today!
+Reduce drop-off and boost conversions with ID scanning and verification solutions. Quickly and securely capture, extract, and verify data from diverse ID cards, passports, driver’s licenses, and other documents with our proven, AI-first approach. Designed to fit seamlessly together, our technology can be integrated as a fully-bundled identity document verification solution or as separate modules via developer-friendly. Try it out today!
 
 > **Note**
 >
@@ -22,29 +22,29 @@ Reduce drop-off and boost conversions with ID scanning and verification solution
 - [Gradio Demo](#gradio-demo)
 - [Python Test API Example](#python-test-api-example)
 
-## IDSDK Installation Guide
+## IDSDK Docker Installation Guide
 
 ### Prerequisites
 
 - Python 3.6+
 - Linux
-- CPU: 2cores or more
-- RAM: 4GB or more
+- CPU: 2 cores or more
+- RAM: 8 GB or more
 
 ### Installation Steps
 
-1. **Download the ID Document Recognition Linux Server Installer:**
+1. **Download the ID Document Recognition Docker Image:**
 
-   Download the Server installer for your operating system from the following link:
+   Download the Server Docker Image from the following link:
    
    [Download the On-premise Server Installer](https://drive.google.com/file/d/1NnZ-Ows3eI8O0TPTbJZcuIYUmVwXr-vV/view?usp=sharing)
 
-2. **Install the On-premise Server:**
+2. **Install the On-premise Docker Server:**
 
-   Run the installer and follow the on-screen instructions to complete the installation. Go to the Download folder and run this command.
+   Run the Docker Image and follow the on-screen instructions to complete the installation. Go to the Download folder and run this command.
    ```sh
    $ cd Download
-   $ sudo dpkg -i --force-overwrite MiniAiLive-IDSDK-LinuxServer.deb
+   $ sudo docker load -i MiniAiLive-IDSDK-DockerImg.tar
    ```
 <div align="center">
    <img src=https://github.com/MiniAiLive/ID-DocumentRecognition-Linux/assets/127708602/5547b656-e5ad-463b-a1b8-4107cdaed556 alt="MiniAiLive Installer">
@@ -55,31 +55,30 @@ Reduce drop-off and boost conversions with ID scanning and verification solution
 
    You can generate the License Request file by using this command:
    ```sh
-   $ cd /opt/miniai/dr-webapi
-   $ sudo ./MiRequest request /home/ubuntu/Download/trial_key.miq
+   $ sudo ./MiRequest_IDSDK request /home/ubuntu/Download/trial.miq
    ```
-<div align="center">
-   <img src=https://github.com/MiniAiLive/ID-DocumentRecognition-Linux/assets/127708602/7001cbe2-d246-40bf-acab-12786cc2d2e0 alt="MiniAiLive Installer">
-</div>
+   <div align="center">
+      <img src=https://github.com/user-attachments/assets/ce855b79-445a-474f-b737-5679f5fb05bc alt="MiniAiLive Installer">
+   </div>
    Then you can see the license request file on your directory, and send it to us via email or WhatsApp. We will send the license based on your Unique Request file, then you can upload the license file to allow to use. Refer the below images.
    
    ```sh
-   $ sudo ./MiRequest update /home/ubuntu/Download/trial_30.mis
+   $ sudo docker run -d --privileged -v /home/ubuntu/Downloads/trial.mis:/var/idsdk.license -p {your_port}:8082 mini-idsdk-server
    ```
-<div align="center">
-   <img src=https://github.com/MiniAiLive/ID-DocumentRecognition-Linux/assets/127708602/e600fd00-895d-48d8-9228-396cd2fc6d98 alt="MiniAiLive Installer">
-</div>
-
+   <div align="center">
+      <img src=https://github.com/user-attachments/assets/c172095f-543e-4422-8276-9bd7e166f5ee alt="MiniAiLive Installer">
+   </div>
+   
 4. **Verify Installation:**
 
    After installation, verify that the On-premise Server is correctly installed by using this command:
    ```sh
-   $ systemctl list-units --state running
+   $ netstat -tnpl
    ```
-   If you can see 'Mini-drsvc.service', 'Mini-idsvc.service', the server has been installed successfully. Refer the below image.
-<div align="center">
-   <img src=https://github.com/MiniAiLive/ID-DocumentRecognition-Linux/assets/127708602/18edc1d1-ddf4-48a7-86c8-eb48e01b4317 alt="MiniAiLive Installer">
-</div>
+   If you can see opened your port correctly, the server has been installed successfully. Refer the below image.
+   <div align="center">
+      <img src=https://github.com/user-attachments/assets/1abcc33c-5e70-4ee6-ba61-4f18a994f0cb alt="MiniAiLive Installer">
+   </div>
 
 ## IDSDK API Details
 
@@ -129,7 +128,7 @@ We have included a Gradio demo to showcase the capabilities of our ID Document R
    First, you need to install Gradio. You can do this using pip:
 
    ```sh
-   git clone https://github.com/MiniAiLive/ID-DocumentRecognition-Linux-SDK.git
+   git clone https://github.com/MiniAiLive/ID-DocumentRecognition-Docker.git
    pip install -r requirement.txt
    cd gradio
    ```
@@ -213,19 +212,25 @@ Contributions are welcome! If you'd like to contribute to this project, please f
 ## Our Products
 No | Project | Feature
 ---|---|---|
-1 | [FaceRecognition-Android](https://github.com/MiniAiLive/FaceRecognition-Android) | 1:N Face Matching, 3D Face Passive LivenessDetection
-2 | [FaceRecognition-LivenessDetection-Windows](https://github.com/MiniAiLive/FaceRecognition-LivenessDetection-Windows) | 1:N Face Matching, 3D Face Passive LivenessDetection
-3 | [FaceLivenessDetection-Android](https://github.com/MiniAiLive/FaceLivenessDetection-Android) | 2D & 3D Face Passive LivenessDetection
-4 | [FaceLivenessDetection-Linux](https://github.com/MiniAiLive/FaceLivenessDetection-Linux) | 2D & 3D Face Passive LivenessDetection
-5 | [FaceLivenessDetection-Windows](https://github.com/MiniAiLive/FaceLivenessDetection-Windows) | 2D & 3D Face Passive LivenessDetection
-6 | [FaceMatching-Android](https://github.com/MiniAiLive/FaceMatching-Android) | 1:1 Face Matching
-7 | [FaceMatching-Windows](https://github.com/MiniAiLive/FaceMatching-Windows) | 1:1 Face Matching
-8 | [FaceAttributes-Android](https://github.com/MiniAiLive/FaceAttributes-Android) | Face Attributes, Age & Gender Estimation
-9 | [ID-DocumentRecognition-Android](https://github.com/MiniAiLive/ID-DocumentRecognition-Android) | IDCard, Passport, Driver License, Credit, MRZ Recognition
-10 | [ID-DocumentRecognition-Linux](https://github.com/MiniAiLive/ID-DocumentRecognition-Linux) | IDCard, Passport, Driver License, Credit, MRZ Recognition
-11 | [ID-DocumentRecognition-Windows](https://github.com/MiniAiLive/ID-DocumentRecognition-Windows) | IDCard, Passport, Driver License, Credit, MRZ Recognition
-12 | [ID-DocumentLivenessDetection-Linux](https://github.com/MiniAiLive/ID-DocumentLivenessDetection-Linux) | ID Document LivenessDetection
-13 | [ID-DocumentLivenessDetection-Windows](https://github.com/MiniAiLive/ID-DocumentLivenessDetection-Windows) | ID Document LivenessDetection
+1 | [FaceRecognition-Linux](https://github.com/MiniAiLive/FaceRecognition-Linux) | 1:1 & 1:N Face Matching
+2 | [FaceRecognition-Windows](https://github.com/MiniAiLive/FaceRecognition-Windows) | 1:1 & 1:N Face Matching
+3 | [FaceRecognition-Docker](https://github.com/MiniAiLive/FaceRecognition-Docker) | 1:1 & 1:N Face Matching
+4 | [FaceRecognition-Android](https://github.com/MiniAiLive/FaceRecognition-Android) | 1:1 & 1:N Face Matching, 2D & 3D Face Passive LivenessDetection
+5 | [FaceRecognition-LivenessDetection-Windows](https://github.com/MiniAiLive/FaceRecognition-LivenessDetection-Windows) | 1:1 & 1:N Face Matching, 2D & 3D Face Passive LivenessDetection
+6 | [FaceLivenessDetection-Linux](https://github.com/MiniAiLive/FaceLivenessDetection-Linux) | 2D & 3D Face Passive LivenessDetection
+7 | [FaceLivenessDetection-Windows](https://github.com/MiniAiLive/FaceLivenessDetection-Windows) | 2D & 3D Face Passive LivenessDetection
+8 | [FaceLivenessDetection-Docker](https://github.com/MiniAiLive/FaceLivenessDetection-Docker) | 2D & 3D Face Passive LivenessDetection
+9 | [FaceLivenessDetection-Android](https://github.com/MiniAiLive/FaceLivenessDetection-Android) | 2D & 3D Face Passive LivenessDetection
+10 | [FaceMatching-Android](https://github.com/MiniAiLive/FaceMatching-Android) | 1:1 Face Matching
+11 | [FaceMatching-Windows-Demo](https://github.com/MiniAiLive/FaceMatching-Windows) | 1:1 Face Matching
+12 | [FaceAttributes-Android](https://github.com/MiniAiLive/FaceAttributes-Android) | Face Attributes, Age & Gender Estimation
+13 | [ID-DocumentRecognition-Linux](https://github.com/MiniAiLive/ID-DocumentRecognition-Linux) | IDCard, Passport, Driver License, Credit, MRZ Recognition
+14 | [ID-DocumentRecognition-Windows](https://github.com/MiniAiLive/ID-DocumentRecognition-Windows) | IDCard, Passport, Driver License, Credit, MRZ Recognition
+15 | [ID-DocumentRecognition-Docker](https://github.com/MiniAiLive/ID-DocumentRecognition-Docker) | IDCard, Passport, Driver License, Credit, MRZ Recognition
+16 | [ID-DocumentRecognition-Android](https://github.com/MiniAiLive/ID-DocumentRecognition-Android) | IDCard, Passport, Driver License, Credit, MRZ Recognition
+17 | [ID-DocumentLivenessDetection-Linux](https://github.com/MiniAiLive/ID-DocumentLivenessDetection-Linux) | ID Document LivenessDetection
+18 | [ID-DocumentLivenessDetection-Windows](https://github.com/MiniAiLive/ID-DocumentLivenessDetection-Windows) | ID Document LivenessDetection
+19 | [ID-DocumentLivenessDetection-Docker](https://github.com/MiniAiLive/ID-DocumentLivenessDetection-Docker) | ID Document LivenessDetection
 
 ## About MiniAiLive
 [MiniAiLive](https://www.miniai.live/) is a leading AI solutions company specializing in computer vision and machine learning technologies. We provide cutting-edge solutions for various industries, leveraging the power of AI to drive innovation and efficiency.
