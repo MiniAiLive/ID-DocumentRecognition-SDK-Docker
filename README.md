@@ -55,6 +55,7 @@ Reduce drop-off and boost conversions with ID scanning and verification solution
 
    You can generate the License Request file by using this command:
    ```sh
+   $ sudo chmod 777 ./MiRequest_IDSDK
    $ sudo ./MiRequest_IDSDK request /home/ubuntu/Download/trial.miq
    ```
    <div align="center">
