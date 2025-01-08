@@ -46,9 +46,10 @@ Reduce drop-off and boost conversions with ID scanning and verification solution
    $ cd Download
    $ sudo docker load -i MiniAiLive-IDSDK-DockerImg.tar
    ```
-<div align="center">
-   <img src=https://github.com/MiniAiLive/ID-DocumentRecognition-Linux/assets/127708602/5547b656-e5ad-463b-a1b8-4107cdaed556 alt="MiniAiLive Installer">
-</div>
+   <div align="center">
+      <img src=https://github.com/user-attachments/assets/39af2549-63b1-4042-be90-9e3dd6e75125 alt="MiniAiLive Installer">
+   </div>
+   
    You can refer our Documentation here. https://docs.miniai.live
 
 3. **Request License and Update:**
@@ -56,20 +57,20 @@ Reduce drop-off and boost conversions with ID scanning and verification solution
    You can generate the License Request file by using this command:
    ```sh
    $ sudo chmod 777 ./MiRequest_IDSDK
-   $ sudo ./MiRequest_IDSDK request /home/ubuntu/Download/trial.miq
+   $ sudo ./MiRequest_IDSDK request /home/ubuntu/Download/trial_key.miq
    ```
    <div align="center">
-      <img src=https://github.com/user-attachments/assets/ce855b79-445a-474f-b737-5679f5fb05bc alt="MiniAiLive Installer">
+      <img src=https://github.com/user-attachments/assets/0c1b27c5-dde4-43e8-96d8-e007b7ed5bff alt="MiniAiLive Installer">
    </div>
    Then you can see the license request file on your directory, and send it to us via email or WhatsApp. We will send the license based on your Unique Request file, then you can upload the license file to allow to use. Refer the below images.
    
    ```sh
-   $ sudo docker run -d --privileged -v /home/ubuntu/Downloads/trial.mis:/var/idsdk.license -p {your_port}:8082 mini-idsdk-server
+   $ sudo docker run -d --privileged -v /home/ubuntu/Downloads/trial_key.mis:/var/idsdk.license -p {your_port}:8082 mini-idsdk-server
    ```
    <div align="center">
-      <img src=https://github.com/user-attachments/assets/c172095f-543e-4422-8276-9bd7e166f5ee alt="MiniAiLive Installer">
+      <img src=https://github.com/user-attachments/assets/0c0ed3ef-4c43-4cee-9a91-19261c11de71 alt="MiniAiLive Installer">
    </div>
-   
+
 4. **Verify Installation:**
 
    After installation, verify that the On-premise Server is correctly installed by using this command:
@@ -78,7 +79,7 @@ Reduce drop-off and boost conversions with ID scanning and verification solution
    ```
    If you can see opened your port correctly, the server has been installed successfully. Refer the below image.
    <div align="center">
-      <img src=https://github.com/user-attachments/assets/1abcc33c-5e70-4ee6-ba61-4f18a994f0cb alt="MiniAiLive Installer">
+      <img src=https://github.com/user-attachments/assets/fc552b88-c22f-4629-89f3-1371f137b4c5 alt="MiniAiLive Installer">
    </div>
 
 ## IDSDK API Details
