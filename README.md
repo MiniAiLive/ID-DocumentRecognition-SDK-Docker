@@ -37,7 +37,7 @@ Reduce drop-off and boost conversions with ID scanning and verification solution
 
    Download the Server Docker Image from the following link:
    
-   [Download the On-premise Server Installer](https://drive.google.com/file/d/1ZCAm7SPYmCK9MYtMmliP7p5OYQnvb1Gh/view?usp=sharing)
+   [Download the On-premise Server Installer](https://drive.google.com/file/d/118nH7fPD7wm9y_eeFCafoqW2GqNkHUoV/view?usp=sharing)
 
 2. **Install the On-premise Docker Server:**
 
